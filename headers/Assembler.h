@@ -48,7 +48,7 @@ bool Is_jmp(const char* str);
 bool Is_RAM(simple_string& sstr, int lencom);
 
 /*!
- * @function void Fill_marks(simple_string* commands, size_t* number_of_commands, int** pointers);
+ * @function void Fill_marks(simple_string* commands, size_t* f_number_of_commands, int** pointers);
  * @brief Function fills the marks in array with commands.
  * @param commands - simple_string* - array with commands.
  * @param number_of_commands - size_t* - pointer to number of commands in array.

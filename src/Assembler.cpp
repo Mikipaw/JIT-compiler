@@ -46,7 +46,7 @@ void Fill_marks(simple_string* commands, const size_t* number_of_commands, int* 
         if(commands[i].data[1] == ':'){
             pointers[commands[i].data[0] - '0'] = i + arguments;
             arguments--;
-            //(*number_of_commands)--;
+            //(*f_number_of_commands)--;
         }
     }
 }
@@ -185,7 +185,7 @@ int ASM_main() {
     Assembler(&number_of_cmds);
     //ASM_Listing();
 
-    FILE* noc = fopen (number_of_commands, "wb");
+    FILE* noc = fopen (f_number_of_commands, "wb");
     fprintf(noc, "%d", number_of_cmds);
     fclose(noc);
 

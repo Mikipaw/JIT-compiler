@@ -561,7 +561,7 @@ enum class bytecode {
             XorEsiEsi = 0x31f6,
             XorEdiEdi = 0x31ff,
 
-        //num?
+        //num
             XorEaxNum = 0x83f0,
             XorEcxNum = 0x83f1,
             XorEdxNum = 0x83f2,

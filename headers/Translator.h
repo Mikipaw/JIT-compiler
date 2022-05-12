@@ -16,6 +16,8 @@
 
 using std::vector;
 
+#define CREATE_TRANSLATOR(name, number_of_commands, id) Translator name(number_of_commands, id, #name);
+
 class Translator{
 private:
     vector<double> trans_vector = vector<double>(1);
