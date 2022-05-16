@@ -197,7 +197,8 @@ enum class bytecode {
             PushEdi = 0x57,
 
         //number
-            PushNum = 0x6a,
+            PushSmallNum = 0x6a,
+            PushNum      = 0x68,
 
     //pop
         //reg
@@ -571,6 +572,16 @@ enum class bytecode {
             XorEsiNum = 0x83f6,
             XorEdiNum = 0x83f7,
 
+    //neg
+        //reg
+            NegEax = 0xf7d8,
+            NegEcx = 0xf7d9,
+            NegEdx = 0xf7da,
+            NegEbx = 0xf7db,
+            NegEsp = 0xf7dc,
+            NegEbp = 0xf7dd,
+            NegEsi = 0xf7de,
+            NegEdi = 0xf7df,
 };
 
 

@@ -47,6 +47,7 @@ Translator::Translator(size_t num_of_coms, int my_id, const char* new_name):
     fclose(input);
 
     array = (double*) calloc(non + 1, sizeof(double));
+    bytecode = (double*) calloc(non + 1, sizeof(double));
 
     double doub = 0;
     int pos = 0;

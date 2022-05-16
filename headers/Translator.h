@@ -20,12 +20,13 @@ using std::vector;
 
 class Translator{
 private:
-    vector<double> trans_vector = vector<double>(1);
+    vector<int64_t> trans_vector;
     size_t number_of_commands = 0;
     const char* name = "Unnamed Translator";
 
-    int* mark       = nullptr;
-    double *array      = nullptr;
+    int*     mark       = nullptr;
+    double  *array      = nullptr;
+    double  *bytecode   = nullptr;
 
     int ret = 0;
     const double version = 0.1;
@@ -57,10 +58,11 @@ public:
     [[nodiscard]] int         Get_ret()     const { return ret; };
 
 
-    [[nodiscard]] vector<double> Get_vector() const { return trans_vector; };
+    [[nodiscard]] vector<int64_t> Get_vector() const { return trans_vector; };
 
     ~Translator(){
         free(array);
+        free(bytecode);
         free(mark);
     }
 
