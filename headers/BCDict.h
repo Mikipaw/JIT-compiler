@@ -5,12 +5,14 @@
 #ifndef JIT_COMPILER_BCDICT_H
 #define JIT_COMPILER_BCDICT_H
 
-enum class bytecode {
+#include <unistd.h>
+
+enum bytecode {
     //ret
-        ret = 0xc3,
+        Ret = 0xc3,
 
     //nop
-        nop = 0x90,
+        Nop = 0x90,
 
     //mov
         //eax

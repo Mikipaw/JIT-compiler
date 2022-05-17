@@ -7,7 +7,6 @@
 
 #include <vector>
 #include <cstdint>
-#include <bits/confname.h>
 #include <unistd.h>
 
 

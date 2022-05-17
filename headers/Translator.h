@@ -8,9 +8,11 @@
 #include <vector>
 #include <cstdio>
 #include <cassert>
+#include <sys/mman.h>
 
 #include "List_of_mistakes.h"
 #include "Paths.h"
+#include "BCDict.h"
 
 #include "headers/simple_string.h"
 
@@ -27,8 +29,11 @@ private:
     int*     mark       = nullptr;
     double  *array      = nullptr;
     double  *bytecode   = nullptr;
+    int64_t *RAM        = nullptr;
+
 
     int ret = 0;
+    int stk_size = 0;
     const double version = 0.1;
 
 public:
@@ -46,6 +51,8 @@ public:
     */
     int Work();
 
+    int Run() const;
+
     Translator& operator=(const Translator& cpu) = delete;
     Translator(const Translator&)                = delete;
 
@@ -61,6 +68,7 @@ public:
     [[nodiscard]] vector<int64_t> Get_vector() const { return trans_vector; };
 
     ~Translator(){
+        free(RAM);
         free(array);
         free(bytecode);
         free(mark);

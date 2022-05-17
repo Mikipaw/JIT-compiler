@@ -5,8 +5,8 @@
 #include "headers/Translator.h"
 
 int Translator::Work(){
-    double first    = 0;
-    double second   = 0;
+    int    first    = 0;
+    int    second   = 0;
     int    integ    = 0;
     for(int i = 0; i < number_of_commands; ++i) {
         integ = (int) array[i];
@@ -31,7 +31,8 @@ int Translator::Work(){
 Translator::Translator(size_t num_of_coms, int my_id, const char* new_name):
         number_of_commands      (num_of_coms),
         mark                    (new int[10]),
-        name                    (new_name)
+        name                    (new_name),
+        RAM                     (new int64_t[4000])
 {
     for(int i = 0; i < 10; ++i) {
         mark[i] = 0;
@@ -59,15 +60,13 @@ Translator::Translator(size_t num_of_coms, int my_id, const char* new_name):
         array[j++] = doub;
         while (text[pos] >= '0' && text[pos] <= '9' || text[pos] == '.' || text[pos] == ']' && pos < lenstr) pos++;
         while (text[pos] == ' ' && pos < lenstr) pos++;
-        //pos+=shift;
-        /*while(doub >= magnitude){
-            pos++;
-            magnitude*=10;
-        }
-        doub*=100;
-        if(      (int) doub % 10  != 0) pos+=3;
-        else if( (int) doub % 100 != 0) pos+=2;*/
     }
-
     number_of_commands = non;
 };
+
+int Translator::Run() const {
+    void *exec = mmap(nullptr, trans_vector.size(), PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    std::memcpy(exec, &trans_vector[0], trans_vector.size());
+    mprotect(exec, trans_vector.size(), PROT_READ | PROT_EXEC);
+    reinterpret_cast<void (*)()>(exec)();
+}

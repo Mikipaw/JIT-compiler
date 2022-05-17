@@ -3,6 +3,7 @@
 #include "headers/Assembler.h"
 #include "headers/Translator.h"
 
+//TODO: compare with cpu from 1st sem
 
 using std::vector;
 
@@ -13,6 +14,7 @@ int main() {
     fclose(noc);
 
     trans.Work();
+    trans.Run();
 
     return 0;
 }

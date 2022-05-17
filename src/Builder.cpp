@@ -22,7 +22,5 @@ int Builder::Build() {
     std::vector<uint8_t> machine_code(text, text + file_size + 1);
     size_t required_memory_size = estimate_memory_size(machine_code.size());
 
-
-
     return 0;
 }

@@ -71,8 +71,8 @@ int Assembler(int* number_of_cmds) {
                 case hash:                                                                  \
                     lencom = strlen(#name) + 1;                                             \
                     fprintf(output, "%d ", number);                                         \
-                    if(Is_jmp(array_with_commands[i].string)){                              \
-                    sscanf(array_with_commands[i].string + lencom, "%d", &reg_number);      \
+                    if(Is_jmp(array_with_commands[i].data)){                              \
+                    sscanf(array_with_commands[i].data + lencom, "%d", &reg_number);      \
                     fprintf(output, "%d ", pointers[reg_number]);                           \
                     break;                                                                  \
                 }                                                                           \
@@ -141,7 +141,7 @@ int ASM_Listing(){
                         break;                                                                                      \
                     }                                                                                               \
                     else if(arg == 1){                                                                              \
-                        sscanf(array_with_commands[i++].string, "%*d %d", &command);                                \
+                        sscanf(array_with_commands[i++].data, "%*d %d", &command);                                \
                         if(Is_push(#name) || Is_pop(#name))                                                         \
                         fprintf(ASM_Listing, "%X\t%d\t%d\t\t\t%s %s\n", pos, number, command, #name, rip[command]); \
                         else                                                                                        \
@@ -150,7 +150,7 @@ int ASM_Listing(){
                         break;                                                                                      \
                     }                                                                                               \
                     else if(arg == 2){                                                                              \
-                        sscanf(array_with_commands[i+=2].string, "%*d %d %lf", &command, &num);                     \
+                        sscanf(array_with_commands[i+=2].data, "%*d %d %lf", &command, &num);                     \
                         fprintf(ASM_Listing, "%X\t%d\t0\t%.2lf\t%s %lf\n", pos, number, num, #name, num);           \
                         pos += 3;                                                                                   \
                         break;                                                                                      \
