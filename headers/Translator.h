@@ -9,6 +9,7 @@
 #include <cstdio>
 #include <cassert>
 #include <sys/mman.h>
+#include <iostream>
 
 #include "List_of_mistakes.h"
 #include "Paths.h"
@@ -20,8 +21,6 @@ using std::vector;
 
 #define CREATE_TRANSLATOR(name, number_of_commands, id) Translator name(number_of_commands, id, #name);
 
-void printt(int a);
-
 class Translator{
 private:
     int bcc[20];
@@ -32,9 +31,8 @@ private:
     int*     mark       = nullptr;
     double  *array      = nullptr;
     u_char bytecode[300];
-    int64_t *RAM        = nullptr;
 
-
+    u_char outputt      = 0;
     int ind = 0;
     int ret = 0;
     int stk_size = 0;
@@ -45,7 +43,6 @@ public:
     Translator(size_t num_of_coms, int my_id, const char* new_name);
 
     [[nodiscard]] double Get_command (int index) const { return array[index]; };
-
 
     /*!
     *  @method int Work().
@@ -71,21 +68,14 @@ public:
     [[nodiscard]] int         Get_ret()     const { return ret; };
 
 
-    ~Translator(){
-        free(RAM);
+    ~Translator() {
+        //free(RAM);
         free(array);
         //free(bytecode);
         free(mark);
     }
 
 };
-
-
-
-
-
-
-
 
 
 #endif //JIT_COMPILER_TRANSLATOR_H

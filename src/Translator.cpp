@@ -3,13 +3,9 @@
 //
 
 #include "headers/Translator.h"
-#include <iostream>
 
-int read_register_eax() {
-    int ret;
-    asm ("mov[ret],eax");
-    return ret;
-}
+
+inline void prints(int number) { printf("%d\n", number); }
 
 int Translator::Work(){
     int64_t    first    = 0;
@@ -39,9 +35,8 @@ int Translator::Work(){
 Translator::Translator(size_t num_of_coms, int my_id, const char* new_name):
         number_of_commands      (num_of_coms),
         mark                    (new int[10]),
-        name                    (new_name),
-        RAM                     (new int64_t[400])
-{
+        name                    (new_name)
+        {
     for(int i = 0; i < 10; ++i) {
         mark[i] = 0;
     }
@@ -70,6 +65,7 @@ Translator::Translator(size_t num_of_coms, int my_id, const char* new_name):
     }
     //number_of_commands = non;
 };
+
 
 int Translator::Run() const {
     void *exec = mmap(nullptr, ind, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
