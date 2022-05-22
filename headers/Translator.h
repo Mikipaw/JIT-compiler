@@ -20,18 +20,22 @@ using std::vector;
 
 #define CREATE_TRANSLATOR(name, number_of_commands, id) Translator name(number_of_commands, id, #name);
 
+void printt(int a);
+
 class Translator{
 private:
-    vector<int64_t> trans_vector;
+    int bcc[20];
+
     size_t number_of_commands = 0;
     const char* name = "Unnamed Translator";
 
     int*     mark       = nullptr;
     double  *array      = nullptr;
-    double  *bytecode   = nullptr;
+    u_char bytecode[300];
     int64_t *RAM        = nullptr;
 
 
+    int ind = 0;
     int ret = 0;
     int stk_size = 0;
     const double version = 0.1;
@@ -53,6 +57,8 @@ public:
 
     int Run() const;
 
+    int compute_dist(int src, int dest);
+
     Translator& operator=(const Translator& cpu) = delete;
     Translator(const Translator&)                = delete;
 
@@ -65,16 +71,16 @@ public:
     [[nodiscard]] int         Get_ret()     const { return ret; };
 
 
-    [[nodiscard]] vector<int64_t> Get_vector() const { return trans_vector; };
-
     ~Translator(){
         free(RAM);
         free(array);
-        free(bytecode);
+        //free(bytecode);
         free(mark);
     }
 
 };
+
+
 
 
 

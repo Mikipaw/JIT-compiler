@@ -21,11 +21,6 @@ size_t estimate_memory_size(size_t machine_code_size);
 class Builder {
 public:
     int Build();
-
-
-
-
-
 };
 
 

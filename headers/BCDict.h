@@ -395,6 +395,7 @@ enum bytecode {
 
 
     //mul
+        Mul = 0xf7,
         //reg
             MulEax = 0xf7e0,
             MulEdx = 0xf7e1,
@@ -430,6 +431,7 @@ enum bytecode {
         Call = 0xe8,         //0xe8e2ffffff
 
     //cmp
+        Cmp = 0x39,
         //reg
             // eax
                 CmpEaxEax = 0x39c0,

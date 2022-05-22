@@ -51,7 +51,7 @@ public:
     [[nodiscard]] const char* get_data() const;
     [[nodiscard]] size_t      get_size() const;
 
-    ~simple_string() { delete[] data; }
+    ~simple_string() { /*delete[] data;*/ }
     char* data = new char[31];
     size_t size = 31;
 };

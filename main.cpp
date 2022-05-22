@@ -8,10 +8,15 @@
 using std::vector;
 
 int main() {
-    int number_of_commands = 0;
-    FILE* noc = fopen (f_number_of_commands, "rb");
-    CREATE_TRANSLATOR(trans, number_of_commands, 1.0);
-    fclose(noc);
+    int number_of_cmds = 100;
+    //Assembler(&number_of_cmds);
+    //ASM_Listing();
+
+    //FILE* noc = fopen (f_number_of_commands, "wb");
+    //fprintf(noc, "%d", number_of_cmds);
+    //fclose(noc);
+
+    CREATE_TRANSLATOR(trans, number_of_cmds, 1.0);
 
     trans.Work();
     trans.Run();

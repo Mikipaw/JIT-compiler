@@ -31,7 +31,7 @@ int Hash(const char* string) {
     return result;
 }
 
-void Fill_marks(simple_string* commands, const size_t* number_of_commands, int* pointers){
+void Fill_marks(simple_string* commands, const size_t* number_of_commands, int* pointers) {
     int arguments = 0;
     for(int i = 0; i < *number_of_commands; ++i) {
         if (Is_RAM(commands[i])) {
@@ -78,7 +78,6 @@ int Assembler(int* number_of_cmds) {
                 }                                                                           \
                 break;                                                                      \
         }
-
 
 #include "commands.h"
 
@@ -134,7 +133,7 @@ int ASM_Listing(){
         sscanf(array_with_commands[i].data, "%d", &command);
         arg = command / 20;
         switch (command) {
-#define DEF_CMD(name, number, code, hash){                                                              \
+    #define DEF_CMD(name, number, code, hash){                                                              \
                 case number:                                                                                        \
                     if(arg == 0) {                                                                                  \
                         fprintf(ASM_Listing, "%X\t%d\t\t\t\t%s\n", pos++, number, #name);                           \
@@ -191,7 +190,6 @@ int ASM_main() {
 
     return 0;
 }
-
 
 #undef asserted
 #undef DIE
