@@ -22,6 +22,7 @@ extern "C" void cprintf(const char*, ...);
 
 inline void prints(int number) { cprintf("&d $", number); }
 
+const int EXIT_NUMBER = 666;
 
 class Translator{
 private:

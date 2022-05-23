@@ -51,20 +51,20 @@ Translator::Translator(size_t num_of_coms, int my_id, const char* new_name):
 
     double doub = 0;
     int pos = 0;
-    int j = 0;
+    int input_index = 0;
     size_t lenstr = strlen(text);
 
     input_numbers[0] = 0;
     for (int k = 0; k < 4; k++) {
-        std::cin >> j;
-        if (j == 666) break;
-        input_numbers[k] = j;
+        std::cin >> input_index;
+        if (input_index == EXIT_NUMBER) break;
+        input_numbers[k] = input_index;
     }
 
-    j = 0;
+            input_index = 0;
     while(pos < lenstr) {
         sscanf(text + pos, "%lf", &doub);
-        array[j++] = doub;
+        array[input_index++] = doub;
         while (text[pos] >= '0' && text[pos] <= '9' || text[pos] == '.' || text[pos] == ']' && pos < lenstr) pos++;
         while (text[pos] == ' ' && pos < lenstr) pos++;
     }
