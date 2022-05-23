@@ -4,9 +4,6 @@
 
 #include "headers/Translator.h"
 
-
-inline void prints(int number) { printf("%d\n", number); }
-
 int Translator::Work(){
     int64_t    first    = 0;
     int64_t    second   = 0;
@@ -72,6 +69,7 @@ int Translator::Run() const {
     std::memcpy(exec, &bytecode[0], ind);
     mprotect(exec, ind, PROT_READ | PROT_EXEC);
     reinterpret_cast<void (*)()>(exec)();
+    //cprintf("&d $", (int)outputt);
     /*int(*exec)();
     exec = (int(*)())&bytecode[0];
     (int)(*exec)(); */
