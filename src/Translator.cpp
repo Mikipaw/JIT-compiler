@@ -103,19 +103,33 @@ int Translator::compute_dist(int src, int dest) {
                  if (curr < 63) result++;
                  else result += 1;
                  }
-                 else result++;
+                 else result+=2;
                 break;
             case 20:
+                pos++;
             case 9:
                 result++;
                 break;
+            case 22:
             case 23:
+            case 24:
+            case 25:
+            case 26:
                 result += 5;
                 pos++;
                 break;
+            case 27:
+                result += 6;
+                pos++;
+                break;
+            case 0:
             case 1:
             case 2:
+            case 3:
                 result += 4;
+                break;
+            case 4:
+                result += 3;
                 break;
             case 21:
                 result += 2;
@@ -129,5 +143,5 @@ int Translator::compute_dist(int src, int dest) {
                 break;
         }
     }
-    return result / 2;
+    return result;
 }

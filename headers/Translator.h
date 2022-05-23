@@ -5,7 +5,6 @@
 #ifndef JIT_COMPILER_TRANSLATOR_H
 #define JIT_COMPILER_TRANSLATOR_H
 
-#include <vector>
 #include <cstdio>
 #include <cassert>
 #include <sys/mman.h>
@@ -16,8 +15,6 @@
 #include "BCDict.h"
 
 #include "headers/simple_string.h"
-
-using std::vector;
 
 #define CREATE_TRANSLATOR(name, number_of_commands, id) Translator name(number_of_commands, id, #name);
 

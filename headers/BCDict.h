@@ -582,6 +582,7 @@ enum bytecode {
             XorEdiNum = 0x83f7,
 
     //neg
+            Neg = 0xf7,
         //reg
             NegEax = 0xf7d8,
             NegEcx = 0xf7d9,
