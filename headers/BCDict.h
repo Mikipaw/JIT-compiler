@@ -198,6 +198,10 @@ enum bytecode {
             PushEbp = 0x55,
             PushEdi = 0x57,
 
+        SaveReg  = 0x41,
+        SavePush = 0x50,
+        SavePop  = 0x58,
+
         //number
             PushSmallNum = 0x6a,
             PushNum      = 0x68,
@@ -407,6 +411,7 @@ enum bytecode {
             MulEdi = 0xf7e7,
 
     //div
+        Div = 0xf7,
         //reg
             DivEax = 0xf7f0,
             DivEdx = 0xf7f1,

@@ -54,6 +54,14 @@ Translator::Translator(size_t num_of_coms, int my_id, const char* new_name):
     int j = 0;
     size_t lenstr = strlen(text);
 
+    input_numbers[0] = 0;
+    for (int k = 0; k < 4; k++) {
+        std::cin >> j;
+        if (j == 666) break;
+        input_numbers[k] = j;
+    }
+
+    j = 0;
     while(pos < lenstr) {
         sscanf(text + pos, "%lf", &doub);
         array[j++] = doub;
@@ -69,10 +77,6 @@ int Translator::Run() const {
     std::memcpy(exec, &bytecode[0], ind);
     mprotect(exec, ind, PROT_READ | PROT_EXEC);
     reinterpret_cast<void (*)()>(exec)();
-    //cprintf("&d $", (int)outputt);
-    /*int(*exec)();
-    exec = (int(*)())&bytecode[0];
-    (int)(*exec)(); */
 }
 
 int Translator::compute_dist(int src, int dest) {
@@ -99,7 +103,9 @@ int Translator::compute_dist(int src, int dest) {
                  if (curr < 63) result++;
                  else result += 1;
                  }
+                 else result++;
                 break;
+            case 20:
             case 9:
                 result++;
                 break;
@@ -108,8 +114,6 @@ int Translator::compute_dist(int src, int dest) {
                 pos++;
                 break;
             case 1:
-                result += 4;
-                break;
             case 2:
                 result += 4;
                 break;

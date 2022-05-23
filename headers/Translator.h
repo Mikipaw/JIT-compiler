@@ -28,7 +28,8 @@ inline void prints(int number) { cprintf("&d $", number); }
 
 class Translator{
 private:
-    int bcc[20];
+    int input_numbers[4];
+    int input_index = 0;
 
     size_t number_of_commands = 0;
     const char* name = "Unnamed Translator";
