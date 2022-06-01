@@ -34,7 +34,7 @@ private:
 
     int*     mark       = nullptr;
     double  *array      = nullptr;
-    u_char bytecode[300];
+    u_char bytecode[400];
 
     u_char outputt      = 0;
     int ind = 0;

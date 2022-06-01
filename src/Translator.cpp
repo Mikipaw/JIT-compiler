@@ -76,6 +76,7 @@ int Translator::Run() const {
     void *exec = mmap(nullptr, ind, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
     std::memcpy(exec, &bytecode[0], ind);
     mprotect(exec, ind, PROT_READ | PROT_EXEC);
+
     reinterpret_cast<void (*)()>(exec)();
 }
 

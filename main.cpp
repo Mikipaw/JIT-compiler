@@ -7,7 +7,7 @@
 //TODO: compare with cpu from 1st sem
 
 int main() {
-    int number_of_cmds = 250;
+    int number_of_cmds = 45;
 
     long time = clock();
     CREATE_TRANSLATOR(trans, number_of_cmds, 1.0);
