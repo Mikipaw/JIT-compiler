@@ -7,7 +7,7 @@
 
 #include <unistd.h>
 
-enum bytecode {
+enum class bc {
     //ret
         Ret = 0xc3,
 

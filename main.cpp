@@ -4,10 +4,8 @@
 #include "headers/Assembler.h"
 #include "headers/Translator.h"
 
-//TODO: compare with cpu from 1st sem
-
 int main() {
-    int number_of_cmds = 45;
+    int number_of_cmds = 47;
 
     long time = clock();
     CREATE_TRANSLATOR(trans, number_of_cmds, 1.0);
